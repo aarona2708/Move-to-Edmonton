@@ -55,5 +55,23 @@ def create_graph_languages(value):
     )
     config = dict({'displayModeBar': False})
 
-
     return fig
+
+def create_average_assessment(value):
+    residential = "RESIDENTIAL"
+    df = pd.read_csv(assessment_file)
+    dff = df.query("`Neighbourhood`==@value & `Assessment Class % 1`==100 & `Assessment Class 1`==@residential")["Assessed Value"]
+    average = dff.mean()
+    currency_string = "${:,.2f}".format(average)
+    return currency_string
+
+#===============================================================================================
+
+# colours
+bg_assessedValue = "#1C6387"
+fg_assessedValue = "white"
+
+#===================================================================================================================
+
+#APP LAYOUT
+app = Dash(__name__)
