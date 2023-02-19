@@ -31,3 +31,28 @@ for item in df_category.values.tolist():
 
 
 #===================================================================================================================
+
+def create_graph_languages(value):
+    df = pd.read_csv(languages_file)
+    dff = df.loc[df['Neighbourhood Name'] == value]
+    headers = list(dff.columns.values)[4:14]
+    values = [
+        dff.iloc[0,  4], dff.iloc[0,  5], dff.iloc[0,  6], dff.iloc[0,  7],
+        dff.iloc[0,  8], dff.iloc[0,  9], dff.iloc[0, 10], dff.iloc[0, 11],
+        dff.iloc[0, 12], dff.iloc[0, 13],
+    ]
+    column_headers = headers[::-1]
+    value_list = values[::-1]
+    #print(f"{len(column_headers)} & {len(value_list)}")
+
+    fig = go.Figure(
+        data=[go.Bar(
+            x=value_list,
+            y=column_headers,
+            orientation="h",)
+        ],
+        layout=go.Layout(margin=dict(l=5, r=5, t=35, b=5)),
+    )
+    config = dict({'displayModeBar': False})
+
+    return fig
