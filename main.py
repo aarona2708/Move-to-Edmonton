@@ -55,4 +55,5 @@ def create_graph_languages(value):
     )
     config = dict({'displayModeBar': False})
 
+
     return fig
