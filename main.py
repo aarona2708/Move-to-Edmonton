@@ -128,7 +128,13 @@ app = Dash(__name__)
 
 app.layout = html.Div([
 
-    
+    html.Div(children=[
+        dcc.RadioItems(options=['Main Page', 'Comparison'],
+                       value='Main Page',
+                       persistence=True,
+                       style={'text-align-last': 'end', 'color': '#1C6387', 'position': 'absolute', 'right': 10},
+                       id='change_page')
+    ]),
 
     # MAIN PAGE
     html.Div(children=[])
