@@ -119,5 +119,21 @@ def create_average_assessment(value):
         currency_string = "${:,.2f}".format(average)
         return currency_string
 
+# ==================================================================================================================== #
+# DASH APP INTERFACE SETUP
+# ==================================================================================================================== #
 
+# APP LAYOUT
+app = Dash(__name__)
+
+app.layout = html.Div([
+
+    
+
+    # MAIN PAGE
+    html.Div(children=[])
+
+
+
+], id='main-container', style={'display': 'block', 'padding': 4})
 
