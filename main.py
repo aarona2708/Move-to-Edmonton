@@ -168,6 +168,28 @@ app.layout = html.Div([
 
             ], id='map_filters', style={'padding': 30, 'background': '#1C6387'}),
 
+            html.Div(children=[
+
+                html.Label('Neighbourhood Assessment Average', style={'color': '#1C6387', 'padding': 25}),
+                html.Div(children=[
+                    dcc.RangeSlider(
+                        min=100000,
+                        max=1000000,
+                        step=25000,
+                        value=[150000, 450000],
+                        id='Neighbourhood_Average'),
+                ], style={'color': '#1C6387'}),
+
+                # Contains Map graph and progress indicator
+                html.Div([
+                    dcc.Loading(
+                        dcc.Graph(id='the_graph',
+                                  config={'doubleClick': 'reset', 'showTips': True, 'displayModeBar': False,
+                                          'watermark': False}, style={'height': 550})),
+
+                ], id='map_container', style={'padding': 0, 'flex': 1}),
+
+            ], id='map_slider_container', style={'width': '55vw', 'flex': 1}),
         ], id='top-container', style={'display': 'flex', 'flex-direction': 'row', 'height': '60vh'}),
 
         # ============================================================================================================ #
