@@ -137,7 +137,41 @@ app.layout = html.Div([
     ]),
 
     # MAIN PAGE
-    html.Div(children=[])
+    html.Div(children=[
+        html.Div(children=[
+            html.Div(children=[
+                html.Label('Moving to Edmonton Made Easy',
+                           style={
+                               'color': 'white',
+                               'padding': '30, 30, 30, 0',
+                               'width': 60,
+                               'font': 'Poppins',
+                               'font-size': 25,
+                               'text-align': 'center',
+                           }),
+                html.Br(),
+                html.Br(),
+                html.Br(),
+
+                html.Label('Neighbourhoods Within Assessment Range', style={'color': 'white', 'margin-bottom': 8}),
+
+                dcc.Dropdown(options=neighbourhood_list,
+                             placeholder='Enter Neighbourhood', id='Neighbourhood_input',
+                             style={'marginRight': '10px', 'width': 350},
+                             ),
+
+                html.Br(),
+                html.Br(),
+                html.Label('Crime Occurrences', style={'color': 'white', 'margin-bottom': 8}),
+                dcc.Dropdown(crimes_list, id='crime_dropdown', multi=True,
+                             style={'marginRight': '10px', 'width': 350}),
+
+            ], id='map_filters', style={'padding': 30, 'background': '#1C6387'}),
+
+        ], id='top-container', style={'display': 'flex', 'flex-direction': 'row', 'height': '60vh'}),
+
+        # ============================================================================================================ #
+    ])
 
 
 
